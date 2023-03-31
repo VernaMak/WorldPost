@@ -4,7 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/router'
-import { PlusCircle } from 'react-icons/fa';
+import { FaPlusCircle } from "react-icons/fa";
 import NavBar from 'src/pages/components/navbar';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,7 +17,7 @@ export default function Home() {
   const { data: session } = useSession()
 
   const navigation = [
-    { Icon: PlusCircle, href: '/addPost', current: router.pathname === '/addPost' },
+    { Icon: FaPlusCircle, href: '/addPost', current: router.pathname === '/addPost' },
   ];
   if (session) {
     router.push('/posts');
