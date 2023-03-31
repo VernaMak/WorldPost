@@ -5,7 +5,11 @@ import { authOptions } from "./auth/[...nextauth]"
 
 
 const dbPool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  host: process.env.PGHOST,
+  port: process.env.PGPORT,
+  database: process.env.PGDATABASE,
+  user: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
 });
 
 export default async function handler(req, res) {
