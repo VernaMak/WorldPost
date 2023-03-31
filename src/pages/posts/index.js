@@ -15,7 +15,7 @@ export default function Posts() {
 
   useEffect(() => {
     if (session) {
-      axios.get('/api/posts')
+      axios.get('https://world-post.vercel.app/api/posts')
         .then((res) => {
           setPosts(res.data);
         })
@@ -37,7 +37,7 @@ export default function Posts() {
     event.preventDefault();
 
     const newPost = { title, content };
-    await axios.post('/api/posts', newPost);
+    await axios.post('https://world-post.vercel.app/api/posts', newPost);
     setTitle('');
     setContent('');
 
@@ -48,7 +48,8 @@ export default function Posts() {
 
 
   const deletePost = async (postId) => {
-    await axios.delete(`/api/posts/${postId}`);
+    await axios.delete(`https://world-post.vercel.app/api/posts/${postId}`);
+
 
     const res = await axios.get('/api/posts');
     setPosts(res.data);
